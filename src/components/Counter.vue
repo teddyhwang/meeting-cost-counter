@@ -1,7 +1,11 @@
 <template>
   <div id="counter">
-    <p><span class="label">Time</span>: <span class="value">{{ currentTimeInSeconds }} seconds</span></p>
-    <p><span class="label">Cost</span>: <span class="value">${{ currentCost }}</span></p>
+    <p><span class="label">Time:</span> <span class="value">{{ currentTimeInSeconds }} seconds</span></p>
+    <p><span class="label">Cost:</span> <span class="value">${{ currentCost }}</span></p>
+
+    <button v-on:click="start">Start</button>
+    <button v-on:click="pause">Pause</button>
+    <button v-on:click="reset">Reset</button>
   </div>
 </template>
 
@@ -11,12 +15,6 @@
   const WORK_MILLISECONDS_PER_YEAR = WORK_SECONDS_PER_YEAR * 1000;
 
   export default {
-    mounted() {
-      setInterval(() => {
-        this.currentTime = this.currentTime + 10;
-        this.currentCost = (this.currentTime * this.costPerMillisecond).toFixed(2);
-      }, 10);
-    },
     props: {
       salary: {
         type: Number
@@ -34,6 +32,21 @@
       },
       currentTimeInSeconds() {
         return Math.floor(this.currentTime / 1000);
+      }
+    },
+    methods: {
+      start() {
+        this.counter = setInterval(() => {
+          this.currentTime = this.currentTime + 10;
+          this.currentCost = (this.currentTime * this.costPerMillisecond).toFixed(2);
+        }, 10);
+      },
+      pause() {
+        clearInterval(this.counter );
+      },
+      reset() {
+        this.currentCost = 0;
+        this.currentTime = 0;
       }
     }
   };

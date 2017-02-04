@@ -1,6 +1,6 @@
 <template>
   <div id="landing">
-    <counter :salary="100000"></counter>
+    <counter :salary="500000"></counter>
   </div>
 </template>
 
