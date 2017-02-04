@@ -1,0 +1,26 @@
+{
+  "server": {
+    "session": {
+      "cookie": {
+        "secure": false
+      }
+    },
+    "superlogin": {
+      "dbServer": {
+        "user": "admin",
+        "password": "password",
+        "cloudant": false,
+        "protocol": "http://",
+        "host": "localhost:5984"
+      },
+      "local": {
+        "sendConfirmEmail": false,
+        "requireEmailConfirm": false,
+        "emailUsername": true
+      },
+      "session": {
+        "adapter": "memory"
+      }
+    }
+  }
+}

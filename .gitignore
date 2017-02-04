@@ -1,0 +1,11 @@
+*.pyc
+*.DS_Store
+*.log
+node_modules
+dist
+deploy
+.idea
+.project
+*.zip
+*.tgz
+coverage
