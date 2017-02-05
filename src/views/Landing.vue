@@ -1,15 +1,15 @@
 <template>
   <div id="landing">
-    <counter :salary="500000"></counter>
+    <set-meeting></set-meeting>
   </div>
 </template>
 
 <script>
-  import Counter from '../components/Counter.vue';
+  import SetMeeting from '../components/SetMeeting.vue';
 
   export default {
     components: {
-      Counter
+      SetMeeting
     }
   };
 </script>
