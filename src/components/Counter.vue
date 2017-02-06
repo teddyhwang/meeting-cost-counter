@@ -6,7 +6,7 @@
     <div class="counter-buttons">
       <el-button type="success" :disabled="timerOn || salary == 0" v-on:click="start">Start</el-button>
       <el-button type="warning" :disabled="!timerOn" v-on:click="pause">Pause</el-button>
-      <el-button type="danger" :disabled="currentCost == 0 && currenTime == 0" v-on:click="resetTimer">Reset</el-button>
+      <el-button type="danger" :disabled="currentCost == 0 && currentTime == 0" v-on:click="resetTimer">Reset</el-button>
     </div>
   </div>
 </template>
@@ -62,7 +62,7 @@
   };
 </script>
 
-<style lang="sass">
+<style lang="scss">
   #counter {
     width: 100%;
     position: fixed;

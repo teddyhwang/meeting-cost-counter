@@ -59,7 +59,7 @@
   };
 </script>
 
-<style lang="sass">
+<style lang="scss">
   #set-meeting {
     max-width: 600px;
     margin: 0 auto;

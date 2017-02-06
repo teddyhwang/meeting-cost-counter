@@ -35,8 +35,12 @@ if (process.env.NODE_ENV === 'production') {
   // here we overwrite the loader config for <style lang="stylus">
   // so they are extracted.
   vueConfig.loaders = {
+    scss: ExtractTextPlugin.extract({
+      loader: 'css-loader!sass-loader',
+      fallbackLoader: 'vue-style-loader' // <- this is a dep of vue-loader
+    }),
     sass: ExtractTextPlugin.extract({
-      loader: 'css-loader!sass',
+      loader: 'css-loader!sass-loader',
       fallbackLoader: 'vue-style-loader' // <- this is a dep of vue-loader
     })
   };
@@ -54,7 +58,7 @@ if (process.env.NODE_ENV === 'production') {
       }
     }),
     new SWPrecachePlugin({
-      cacheId: 'vue-tico',
+      cacheId: 'vue-meeting-cost-calculator',
       filename: 'service-worker.js',
       dontCacheBustUrlsMatching: /./,
       staticFileGlobsIgnorePatterns: [/index\.html$/, /\.map$/]
