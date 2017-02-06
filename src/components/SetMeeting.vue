@@ -6,6 +6,7 @@
       </div>
       <p>Time is money. This meeting will cost <strong>${{ costPerHour }}/hour</strong></p>
       <el-button type="danger" v-on:click="resetAttendees">Reset</el-button>
+      <el-button :plain="true" type="warning" v-on:click="example">Product Sync</el-button>
     </div>
     <ol>
       <li v-for="(attendee, index) in attendees">
@@ -26,7 +27,7 @@
         salaries: {
           developer: 100000,
           product: 100000,
-          teamlead: 120000,
+          'team lead': 120000,
           director: 150000,
           vp: 200000
         },
@@ -46,6 +47,32 @@
       resetAttendees() {
         this.attendees = [];
         this.cost = 0;
+      },
+      example() {
+        const attendees = [
+          'team lead',
+          'team lead',
+          'team lead',
+          'developer',
+          'developer',
+          'developer',
+          'product',
+          'product',
+          'product',
+          'product',
+          'product',
+          'product',
+          'director',
+          'director',
+          'director',
+          'director',
+          'vp'
+        ];
+
+        attendees.forEach((role) => {
+          this.attendees.push(role);
+          this.cost = this.cost + this.salaries[role];
+        });
       }
     },
     computed: {
@@ -63,7 +90,7 @@
   #set-meeting {
     max-width: 600px;
     margin: 0 auto;
-    padding: 140px 0 180px;
+    padding: 140px 0 200px;
     text-align: center;
 
     .add {
@@ -92,7 +119,7 @@
         text-transform: capitalize;
         clear: both;
         line-height: 2em;
-        border-bottom: solid 1px rgba(0,0,0,0.3);
+        border-bottom: solid 1px rgba(0,0,0,0.1);
         text-align: left;
 
         button {
