@@ -9,6 +9,7 @@ export default new Router({
   mode: 'history',
   scrollBehavior: () => ({ y: 0 }),
   routes: [
+    { path: '/', redirect: '/time-is-money' },
     { path: '/time-is-money', component: LandingView }
   ]
 });

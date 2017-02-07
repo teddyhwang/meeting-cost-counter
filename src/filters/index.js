@@ -1,6 +1,10 @@
-export function twoDigits(value) {
-  if (value.toString().length <= 1) {
-    return '0' + value.toString();
+export function timer(value) {
+  if (value < 60) {
+    return value + ' seconds';
   }
-  return value.toString();
+
+  const minutes = Math.floor(value / 60);
+  const seconds = value - (minutes * 60);
+
+  return `${minutes} min ${seconds} sec`;
 };

@@ -1,7 +1,7 @@
 <template>
   <div id="counter">
     <p><span class="label">Cost:</span><span class="value">${{ currentCost }}</span></p>
-    <p><span class="label">Time:</span><span class="value">{{ currentTimeInSeconds }} seconds</span></p>
+    <p><span class="label">Time:</span><span class="value">{{ currentTimeInSeconds | timer}}</span></p>
 
     <div class="counter-buttons">
       <el-button type="success" v-if="!timerOn" :disabled="salary == 0" v-on:click="start">Start</el-button>
