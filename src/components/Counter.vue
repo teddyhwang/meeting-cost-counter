@@ -4,7 +4,7 @@
     <p><span class="label">Time:</span><span class="value">{{ currentTimeInSeconds | timer}}</span></p>
 
     <div class="counter-buttons">
-      <el-button type="success" v-if="!timerOn" :disabled="salary == 0" v-on:click="start">Start</el-button>
+      <el-button type="success" v-if="!timerOn" :disabled="salary == 0" v-on:click="start">{{ startResumeLabel }}</el-button>
       <el-button type="warning" v-if="timerOn" v-on:click="pause">Pause</el-button>
       <el-button type="danger" :disabled="currentCost == 0 && currentTime == 0" v-on:click="resetTimer">Reset</el-button>
     </div>
@@ -35,6 +35,13 @@
       },
       currentTimeInSeconds() {
         return Math.floor(this.currentTime / 1000);
+      },
+      startResumeLabel() {
+        if (this.currentTime === 0) {
+          return 'Start';
+        }
+
+        return 'Resume';
       }
     },
     methods: {

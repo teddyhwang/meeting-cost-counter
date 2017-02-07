@@ -20,6 +20,7 @@
 
 <script>
   import Counter from './Counter.vue';
+  import exampleOfAttendees from './example-attendees';
 
   export default {
     data() {
@@ -49,27 +50,7 @@
         this.cost = 0;
       },
       example() {
-        const attendees = [
-          'team lead',
-          'team lead',
-          'team lead',
-          'developer',
-          'developer',
-          'developer',
-          'product',
-          'product',
-          'product',
-          'product',
-          'product',
-          'product',
-          'director',
-          'director',
-          'director',
-          'director',
-          'vp'
-        ];
-
-        attendees.forEach((role) => {
+        exampleOfAttendees.forEach((role) => {
           this.attendees.push(role);
           this.cost = this.cost + this.salaries[role];
         });
